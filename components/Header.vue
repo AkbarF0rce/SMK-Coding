@@ -5,7 +5,7 @@ import { NuxtLink } from '#build/components';
         <div class="container">
             <div class="flex justify-between items-center">
                 <div>
-                    <NuxtLink to="/" class="text-xl font-bold">RxZyy Shop</NuxtLink>
+                    <NuxtLink to="/" class="text-xl font-bold">Solution Phone</NuxtLink>
                 </div>
                 <nav class="flex items-center gap-6">
                     <NuxtLink to="/" class="text-base">Home</NuxtLink>

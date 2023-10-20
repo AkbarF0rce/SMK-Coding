@@ -1,19 +1,19 @@
 export const category: Category[] = [
         {
             id: 1,
-            name: "Baju",
+            name: "Iphone",
         },
         {
             id: 2,
-            name: "Sepatu",
+            name: "Samsung",
         },
         {
             id: 3,
-            name: "Celana",
+            name: "Xiaomi",
         },
         {
             id: 4,
-            name: "Jam",
+            name: "Realme",
         },
     ]
 export interface Category {
