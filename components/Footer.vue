@@ -2,7 +2,7 @@
     <footer class="w-full border-t border-slate-200 py-6">
         <div class="container">
             <div class="flex justify-center items-center">
-                <p>&copy; 2023. RxZyyShop. All rights reserved</p>
+                <p>&copy; 2023. SolutionPhone. All rights reserved</p>
             </div>
         </div>
     </footer>
