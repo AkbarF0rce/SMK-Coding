@@ -13,6 +13,7 @@
         <div class="container">
             <div class="py-10">
                 <div class="mb-6 flex justify-end gap-6">
+                    <NuxtLink to="/category/create" class="bg-orange-500 text-white flex justify-center items-center px-3 rounded-lg">Create Category</NuxtLink>
                     <Dropdown @selected-category="selectedCategory = $event" />
                 </div>
                 <div class="flex gap-6 flex-wrap mx-auto">
