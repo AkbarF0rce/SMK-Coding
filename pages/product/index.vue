@@ -3,11 +3,11 @@
 
     const productStore = useProductsStore();
     const allProducts = ref([]);
-
+    
     productStore.getAllProducts().then(() => {
         allProducts.value = productStore.products;
     });
-
+    
     const selectedCategory = ref("");
 </script>
 <template>

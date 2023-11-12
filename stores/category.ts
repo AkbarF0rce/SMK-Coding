@@ -17,10 +17,10 @@ export const useCategoryStore = defineStore("category", {
             })
             if(error.value){
                 this.status = false;
-                this.message = "Get Products Failed !!!";
+                this.message = "Create Category failed !!!";
             }else if(data){
                 this.status = true;
-                this.message = "Get Products successfully";
+                this.message = "Create Category successfully";
             }
         },
         async getAllCategory(){
@@ -34,10 +34,10 @@ export const useCategoryStore = defineStore("category", {
             })
             if(error.value){
                 this.status = false;
-                this.message = "Get Products Failed !!!";
+                this.message = "Get Category failed !!!";
             }else if(data){
                 this.status = true;
-                this.message = "Get Products successfully";
+                this.message = "Get Category successfully";
                 this.categories = data.value;
             }
         },

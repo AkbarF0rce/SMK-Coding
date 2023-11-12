@@ -4,6 +4,7 @@
     // const categories = ref(Category);
     const isLoading = ref(false);
     const isShowAlert = ref(false);
+    const message = ref("");
     const router = useRouter();
     const categoryStore = useCategoryStore();
     const formCreateCategory = [
@@ -21,6 +22,7 @@
         await categoryStore.createCategory(result);
         if (categoryStore.status){
             isShowAlert.value = true;
+            message.value = categoryStore.message;
             isLoading.value = false;
             window.scrollTo({
                 top: 0,
@@ -36,7 +38,7 @@
     <section class="flex justify-center py-10">
         <div class="w-[500px]">
             <h1 class="text-2xl mb-7 font-medium">Create Category</h1>
-            <div v-if="isShowAlert" class="p-4 mb-4 text-sm rounded-lg bg-green-100 text-green-800">Create Category Successfully</div>
+            <div v-if="isShowAlert" class="p-4 mb-4 text-sm rounded-lg bg-green-100 text-green-800">{{ message }}</div>
             <form @submit.prevent="createCategory()">
                 <div class="mb-6" v-for="(item, index) in formCreateCategory" :key="index">
                     <label :for="item.name" class="block mb-2 text-sm font-medium text-gray-900"> {{ item.label }} </label>

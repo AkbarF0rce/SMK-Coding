@@ -16,7 +16,7 @@
             <img :src="baseStorageUrl + props.product.image" class="w-full h-full object-contain"/>
         </div>
         <div class="px-5 pb-5 pt-9 relative">
-            <NuxtLink :to="`/product/${props.product.id}`" ><h3 class="text-lg font-bold mb-4 text-limit limit-2">{{ props.product.name }}</h3></NuxtLink>
+            <NuxtLink :to="`/product/${props.product.name}`" ><h3 class="text-lg font-bold mb-4 text-limit limit-2">{{ props.product.name }}</h3></NuxtLink>
             <div class="flex justify-between items-center">
                 <span class="text-sm font-normal">{{ props.product.storage }}</span>
                 <span class="text-sm font-normal">${{ props.product.price }}</span>
