@@ -6,42 +6,22 @@
             default: {},
         }
     });
-    const oneProduct = ref(props.product);
 
-    watch(() => props.product, (newProduct) => {
-        oneProduct.value = newProduct;
-    });
-
-    const addCart = () => {
-        oneProduct.value.isCart = !oneProduct.value.isCart
-        let localStorageData = localStorage.getItem("products");
-        let productOfCart: Products[] = [];
-        if (localStorageData) {
-            productOfCart = JSON.parse(localStorageData);   
-        }
-        if (oneProduct.value.isCart) {
-            productOfCart.push(oneProduct.value);
-            localStorage.setItem("products", JSON.stringify(productOfCart));
-        } 
-        else {
-            productOfCart = productOfCart.filter((item) => item.id !== oneProduct.value.id);
-            localStorage.setItem("products", JSON.stringify(productOfCart));
-        }
-    }
+    const { baseStorageUrl } = useAppConfig();
 </script>
 
 <template>
     <section class="bg-white shadow-xl rounded-xl overflow-hidden">
         <div :class="`w-full h-[200px] p-5 bg-gray-300`">
-            <NuxtLink :to="`/product/${oneProduct.id}`"><img :src="oneProduct.image" class="w-full h-full object-contain"/></NuxtLink>
+            <img :src="baseStorageUrl + props.product.image" class="w-full h-full object-contain"/>
         </div>
         <div class="px-5 pb-5 pt-9 relative">
-            <NuxtLink :to="`/product/${oneProduct.id}`" ><h3 class="text-lg font-bold mb-4 text-limit limit-2">{{ oneProduct.name }}</h3></NuxtLink>
+            <NuxtLink :to="`/product/${props.product.id}`" ><h3 class="text-lg font-bold mb-4 text-limit limit-2">{{ props.product.name }}</h3></NuxtLink>
             <div class="flex justify-between items-center">
-                <span class="text-sm font-normal">{{ oneProduct.storage }}</span>
-                <span class="text-sm font-normal">${{ oneProduct.price }}</span>
+                <span class="text-sm font-normal">{{ props.product.storage }}</span>
+                <span class="text-sm font-normal">${{ props.product.price }}</span>
             </div>
-            <div :class="`cursor-pointer absolute -top-5 right-7 w-[50px] h-[50px] shadow-xl rounded-full flex justify-center items-center hover:bg-blue-600 hover:text-white transition duration-300 ${oneProduct.isCart ? 'bg-blue-600 text-white' : 'bg-white'}`" @click="addCart">
+            <div :class="`cursor-pointer absolute -top-5 right-7 w-[50px] h-[50px] shadow-xl rounded-full flex justify-center items-center hover:bg-blue-600 hover:text-white transition duration-300 ${props.product.isCart ? 'bg-blue-600 text-white' : 'bg-white'}`">
                 <i class="ri-shopping-cart-2-line"></i>
             </div>
         </div>
